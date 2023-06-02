@@ -96,6 +96,7 @@ class Browser(object):
                 try:
                     element.clear()
                 except:
+                    print('clear failed')
                     pass
                 content = str(content)
                 element.send_keys(content)

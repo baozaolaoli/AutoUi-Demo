@@ -121,7 +121,7 @@ if __name__ == '__main__':
     clear_reports()
     suite_dirs, file_names, tags, environment = main(sys.argv[1:])
     # suite_dirs = ['inpd']
-    # file_names = ['suite_02_inpdOrder.py']
+    file_names = ['*']
     tags = ['']
     # environment = 'test'
     print('测试目录:', suite_dirs)
