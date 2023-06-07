@@ -11,7 +11,7 @@ def setting():
 
 def courses(course_list_name, name, school, class_period='30', allowed_quit=False, credit='3', end_date="2026-06-04",
             is_public=0, set=0, is_show_conceal=False, student_join_approve=False,
-            course_module_types=["announcement", "shixun_homework"],headers=user_header_1):
+            course_module_types=["announcement", "shixun_homework"], headers=user_header_1):
     """
     新建课堂接口
     :param course_list_name: 
@@ -42,7 +42,23 @@ def courses(course_list_name, name, school, class_period='30', allowed_quit=Fals
         "is_show_conceal": is_show_conceal,
         "student_join_approve": student_join_approve
     }
-    res = req_post(url=url, params=data, desc="创建课堂接口",headers=headers)
+    res = req_post(url=url, params=data, desc="创建课堂接口", headers=headers)
+    return res
+
+
+"""
+https://data.educoder.net/api/courses.json
+"""
+
+
+def get_courses(page=1, limit=16, order='mine', headers=user_header_1):
+    url = host + '/api/courses.json'
+    data = {
+        'page': page,
+        'limit': limit,
+        'order': order
+    }
+    res = req_get(url=url, params=data, desc="获取课堂列表",headers=headers)
     return res
 
 

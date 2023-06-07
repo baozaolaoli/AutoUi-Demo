@@ -120,9 +120,9 @@ def main(argv):
 if __name__ == '__main__':
     clear_reports()
     suite_dirs, file_names, tags, environment = main(sys.argv[1:])
-    # suite_dirs = ['inpd']
-    file_names = ['*']
-    tags = ['']
+    suite_dirs = ['demo']
+    file_names = ['*02*']
+    tags = ['05']
     # environment = 'test'
     print('测试目录:', suite_dirs)
     print('测试文件:', file_names)

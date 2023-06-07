@@ -36,7 +36,7 @@ class TestDemo(WegoUnittest):
 
     def tearDown(self):
         self.browser.save_screen('tear_down_{}'.format(self.get_title()))
-        # self.browser.driver.close()
+        self.browser.driver.close()
 
     def test_001(self):
         """CASE01:(UI) 助教登录并创建新课堂"""
@@ -46,7 +46,6 @@ class TestDemo(WegoUnittest):
         self.browser.wait_element(desc='用户名输入框', value=xpath_password_input, action='input', content=teacher_password)
         self.browser.wait_element(desc='登录按钮', value=xpath_login_button, action='click')
         self.browser.wait_element(desc='用户头像', value=xpath_user_logo, action='click')
-
         self.browser.wait_element(desc='我的教学课堂列表', value=xpath_my_classroom_label, action='move_to')
         self.browser.wait_element(desc='开始创建课堂按钮', value=xpath_start_create_classroom_button, action='click')
         self.browser.wait_element(desc='课程名称输入框', value=xpath_course_name_input, action='input', content=ui_name_root)

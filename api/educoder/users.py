@@ -20,11 +20,6 @@ def get_navigation_info(school=None, headers=user_header_1):
     return res
 
 
-"""
-p49hjcek8
-https://data.educoder.net
-"""
-
 
 def homepage_info(login, headers=user_header_1):
     url = host + '/api/users/{}/homepage_info.json'.format(login)

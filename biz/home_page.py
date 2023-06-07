@@ -20,10 +20,12 @@ def login_educoder(username=teacher_username, password=teacher_password, headers
     用户登录
     :param username: 帐号 
     :param pwd: 密码
-    :return: Cookie
+    :return: (用户基本信息，Cookie)
     """
     res = accounts.login(login=username, password=password)
     user_info = res.json()
+    assert user_info is not None, '登录失败,用户信息为空'
+    assert res.headers['Set-Cookie'] is not None, '登录失败,响应头中未包含cookie'
     cookie = res.headers['Set-Cookie']
     headers['Cookie'] = cookie
     return user_info, cookie
